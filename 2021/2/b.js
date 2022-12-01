@@ -21,10 +21,8 @@ lineReader.on("line", (line) => {
     depth += aim * distance;
   } else if (direction === "down") {
     aim += distance;
-    // depth += distance;
   } else if (direction === "up") {
     aim -= distance;
-    // depth -= distance;
   }
 });
 
