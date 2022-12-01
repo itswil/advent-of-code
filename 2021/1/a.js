@@ -9,7 +9,6 @@ const lineReader = readline.createInterface({
 });
 
 let increased = 0;
-let decreased = 0;
 let previousValue = 0;
 
 lineReader.on("line", (line) => {
