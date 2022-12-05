@@ -15,6 +15,7 @@ const stacks: Array<Array<string>> = [
   ["S", "J", "F", "L", "H", "W", "Z", "Q"],
   ["S", "Q", "P", "W", "N"],
 ];
+// EDIT (after submission): I cheated... turns out part of the challenge was parsing the input :')
 
 const lines: Array<string> = inputFile.split("\n");
 
