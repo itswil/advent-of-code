@@ -1,12 +1,15 @@
 {
   "name": "adventofcode-2022",
   "version": "1.0.0",
-  "type": "module",
-  "description": "",
+  "author": "",
   "main": "index.js",
+  "description": "",
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "type": "module",
+  "dependencies": {
+    "bun-types": "^0.2.2"
+  }
 }
