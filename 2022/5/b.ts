@@ -21,10 +21,13 @@ const lines: Array<string> = inputFile.split("\n");
 lines.map((line) => {
   const [_move, quantity, _from, start, _to, destination] = line.split(" ");
   let count = parseInt(quantity);
+  const temporaryStore: Array<string> = [];
   while (count) {
-    stacks[parseInt(destination) - 1].push(stacks[parseInt(start) - 1].pop()!);
+    temporaryStore.push(stacks[parseInt(start) - 1].pop()!);
     count--;
   }
+  stacks[parseInt(destination) - 1].push(...temporaryStore.reverse());
+  temporaryStore.length = 0;
 });
 
 let topOfEach = "";
