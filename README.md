@@ -6,6 +6,7 @@ As of 2022 Day 6:
 
 ```
 bun ./2022/6/a.ts --test
+bun ./2022/6/a.ts -t
 bun ./2022/6/a.ts
 ```
 
