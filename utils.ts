@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { argv } from "process";
 
-export const getLines = () => {
+export const getInput = (): string => {
   const path = argv[1].split("/").slice(0, -1).join("/");
   const isTestInput = argv[2] === "--test" || argv[2] === "-t";
   let pathToInput = `${path}/input.txt`;

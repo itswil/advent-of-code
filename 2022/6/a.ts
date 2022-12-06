@@ -1,5 +1,5 @@
-import { getLines } from "../utils";
+import { getInput } from "../../utils";
 
-const lines = getLines();
+const input = getInput();
 
 console.log("🎄 Solution:");
