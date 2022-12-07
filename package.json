@@ -1,13 +1,6 @@
 {
-  "name": "adventofcode-2022",
-  "version": "1.0.0",
-  "author": "",
-  "main": "index.js",
-  "description": "",
-  "license": "ISC",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "advent-of-code",
+  "module": "index.ts",
   "type": "module",
   "dependencies": {
     "bun-types": "^0.2.2"
