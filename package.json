@@ -2,7 +2,7 @@
   "name": "advent-of-code",
   "module": "index.ts",
   "type": "module",
-  "dependencies": {
-    "bun-types": "^0.3.0"
+  "devDependencies": {
+    "bun-types": "^0.5.8"
   }
 }
