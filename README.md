@@ -2,10 +2,10 @@
 
 ### Running the code
 
-Example: 2022 Day 1-buntest
+Example: 2020 Day 1
 
 ```
-bun test --watch 2022/1-buntest
+bun test --watch 2020/1
 ```
 
 #### Old execution
