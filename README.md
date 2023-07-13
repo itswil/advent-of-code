@@ -18,7 +18,7 @@ bun ./2022/6/a.ts -t
 bun ./2022/6/a.ts
 ```
 
-You must place `input.txt` and `testInput.txt` in the same directory as your code
+You **must** place `input.txt` and `testInput.txt` in the same directory as your code
 
 #### Oldest excution
 
