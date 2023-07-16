@@ -1,14 +1,22 @@
 {
   "compilerOptions": {
+    // add Bun type definitions
+    "types": [
+      "bun-types"
+    ],
+    // enable latest features
     "lib": [
-      "ESNext"
+      "esnext"
     ],
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "node",
-    // "bun-types" is the important part
-    "types": [
-      "bun-types"
-    ]
+    // if TS 5.x+
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "esModuleInterop": true, // allow default imports for CommonJS modules
+    // best practices
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   }
 }
