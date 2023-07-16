@@ -3,6 +3,6 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
-    "bun-types": "^0.5.8"
+    "bun-types": "^0.6.14"
   }
 }
