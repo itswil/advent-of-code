@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { getMultipliedValueFromTwo, getMultipliedValueFromThree } from "./a";
+import { getMultipliedValueFromTwo, getMultipliedValueFromThree } from ".";
 
 const PATH = import.meta.dir;
 const testInput = Bun.file(`${PATH}/input-test.txt`);
