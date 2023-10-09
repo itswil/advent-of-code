@@ -1,16 +1,14 @@
 # 🎄 Advent of Code 🌟
 
-### Running the code
-
-Example: 2020 Day 1
+## 🦌 Running the code
 
 ```
 bun test --watch 2020/1
 ```
 
-#### Old execution
+Applies to `2020` and `2023` onwards
 
-As of 2022 Day 6:
+### 🤶🏻 Old execution
 
 ```
 bun ./2022/6/a.ts --test
@@ -20,7 +18,7 @@ bun ./2022/6/a.ts
 
 You **must** place `input.txt` and `testInput.txt` in the same directory as your code
 
-#### Oldest excution
+### 🎅🏻 Oldest excution
 
 For JS files:
 
