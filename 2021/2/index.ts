@@ -1,9 +1,8 @@
 export const getHorizontalDepthValue = (input: string) => {
   let horizontalPosition = 0;
   let depth = 0;
-  const array = input.split("\n");
 
-  for (const line of array) {
+  for (const line of input.split("\n")) {
     const [direction, distance] = line.split(" ");
 
     if (direction === "forward") {
@@ -23,9 +22,7 @@ export const getHorizontalDepthValue2 = (input: string) => {
   let depth = 0;
   let aim = 0;
 
-  const array = input.split("\n");
-
-  for (const line of array) {
+  for (const line of input.split("\n")) {
     const [direction, distanceString] = line.split(" ");
     const distance = parseInt(distanceString);
 

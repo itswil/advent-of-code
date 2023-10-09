@@ -1,9 +1,8 @@
 export const getNumberOfIncrements = (input: string): number => {
   let increased = 0;
   let previousValue = 0;
-  const array = input.split("\n");
 
-  for (const line of array) {
+  for (const line of input.split("\n")) {
     if (previousValue) {
       parseInt(line) > previousValue && increased++;
     }
@@ -20,9 +19,7 @@ export const getNumberOfSumIncrements = (input: string): number => {
   let previousValue = 0;
   const values = [];
 
-  const array = input.split("\n");
-
-  for (const line of array) {
+  for (const line of input.split("\n")) {
     // Generate rolling sum array
     if (previousPreviousValue && previousValue && parseInt(line)) {
       values.push(previousPreviousValue + previousValue + parseInt(line));
