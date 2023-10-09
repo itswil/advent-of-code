@@ -16,9 +16,9 @@ test("should return the number of valid passports", async () => {
 });
 
 test("should return the number of valid passports after validation", async () => {
-  // expect(getNumberOfPassportsPassingValidation(await testInput2.text())).toBe(
-  //   4
-  // );
+  expect(getNumberOfPassportsPassingValidation(await testInput2.text())).toBe(
+    4
+  );
 
   console.log(
     "🌟 Answer:",
