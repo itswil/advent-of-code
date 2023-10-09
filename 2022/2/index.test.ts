@@ -6,26 +6,25 @@ import {
 } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const input = await inputFile.text();
 
 test("should return total score for the given strategy", async () => {
-  expect(getTotalScore(await testInput.text())).toBe(15);
+  expect(getTotalScore(testInput)).toBe(15);
 
-  console.log("🌟 Answer:", getTotalScore(await input.text()));
+  console.log("🌟 Answer:", getTotalScore(input));
 });
 
 test("should return total score for the given strategy v2", async () => {
-  expect(getTotalScore2(await testInput.text())).toBe(15);
+  expect(getTotalScore2(testInput)).toBe(15);
 
-  console.log("🌟 Answer:", getTotalScore2(await input.text()));
+  console.log("🌟 Answer:", getTotalScore2(input));
 });
 
 test("should return total score for ultra top secret strategy", async () => {
-  expect(getTotalScoreForTopSecretStrategy(await testInput.text())).toBe(12);
+  expect(getTotalScoreForTopSecretStrategy(testInput)).toBe(12);
 
-  console.log(
-    "🌟 Answer:",
-    getTotalScoreForTopSecretStrategy(await input.text())
-  );
+  console.log("🌟 Answer:", getTotalScoreForTopSecretStrategy(input));
 });

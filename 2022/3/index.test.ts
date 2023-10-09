@@ -2,17 +2,19 @@ import { expect, test } from "bun:test";
 import { getItemPrioritySum, getItemPrioritySumForGroups } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const input = await inputFile.text();
 
 test("should return the sum of item priorities", async () => {
-  expect(getItemPrioritySum(await testInput.text())).toBe(157);
+  expect(getItemPrioritySum(testInput)).toBe(157);
 
-  console.log("🌟 Answer:", getItemPrioritySum(await input.text()));
+  console.log("🌟 Answer:", getItemPrioritySum(input));
 });
 
 test("should return the sum of item priorities for group", async () => {
-  expect(getItemPrioritySumForGroups(await testInput.text())).toBe(70);
+  expect(getItemPrioritySumForGroups(testInput)).toBe(70);
 
-  console.log("🌟 Answer:", getItemPrioritySumForGroups(await input.text()));
+  console.log("🌟 Answer:", getItemPrioritySumForGroups(input));
 });

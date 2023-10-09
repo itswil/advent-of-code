@@ -5,22 +5,19 @@ import {
 } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const input = await inputFile.text();
 
 test("should return the total calories for the elf carrying the most", async () => {
-  expect(getHighestTotalCalories(await testInput.text())).toBe(24000);
+  expect(getHighestTotalCalories(testInput)).toBe(24000);
 
-  console.log("🌟 Answer:", getHighestTotalCalories(await input.text()));
+  console.log("🌟 Answer:", getHighestTotalCalories(input));
 });
 
 test("should return the total calories for the top 3 elves carrying the most", async () => {
-  expect(getHighestTotalCaloriesForTop3Elves(await testInput.text())).toBe(
-    45000
-  );
+  expect(getHighestTotalCaloriesForTop3Elves(testInput)).toBe(45000);
 
-  console.log(
-    "🌟 Answer:",
-    getHighestTotalCaloriesForTop3Elves(await input.text())
-  );
+  console.log("🌟 Answer:", getHighestTotalCaloriesForTop3Elves(input));
 });

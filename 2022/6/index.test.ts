@@ -5,20 +5,19 @@ import {
 } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const input = await inputFile.text();
 
 test("should return the number of chars processed until marker", async () => {
-  expect(getNumberOfCharsUntilMarker(await testInput.text())).toBe(7);
+  expect(getNumberOfCharsUntilMarker(testInput)).toBe(7);
 
-  console.log("🌟 Answer:", getNumberOfCharsUntilMarker(await input.text()));
+  console.log("🌟 Answer:", getNumberOfCharsUntilMarker(input));
 });
 
 test("should return the number of chars processed until marker (part 2)", async () => {
-  expect(getNumberOfCharsUntilMarkerPart2(await testInput.text())).toBe(19);
+  expect(getNumberOfCharsUntilMarkerPart2(testInput)).toBe(19);
 
-  console.log(
-    "🌟 Answer:",
-    getNumberOfCharsUntilMarkerPart2(await input.text())
-  );
+  console.log("🌟 Answer:", getNumberOfCharsUntilMarkerPart2(input));
 });

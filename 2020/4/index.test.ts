@@ -5,23 +5,21 @@ import {
 } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const testInput2 = Bun.file(`${PATH}/input-test-2.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const testInputFile2 = Bun.file(`${PATH}/input-test-2.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const testInput2 = await testInputFile2.text();
+const input = await inputFile.text();
 
 test("should return the number of valid passports", async () => {
-  expect(getNumberOfValidPassports(await testInput.text())).toBe(2);
+  expect(getNumberOfValidPassports(testInput)).toBe(2);
 
-  console.log("🌟 Answer:", getNumberOfValidPassports(await input.text()));
+  console.log("🌟 Answer:", getNumberOfValidPassports(input));
 });
 
 test("should return the number of valid passports after validation", async () => {
-  expect(getNumberOfPassportsPassingValidation(await testInput2.text())).toBe(
-    4
-  );
+  expect(getNumberOfPassportsPassingValidation(testInput2)).toBe(4);
 
-  console.log(
-    "🌟 Answer:",
-    getNumberOfPassportsPassingValidation(await input.text())
-  );
+  console.log("🌟 Answer:", getNumberOfPassportsPassingValidation(input));
 });

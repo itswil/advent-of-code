@@ -2,17 +2,19 @@ import { expect, test } from "bun:test";
 import { getHorizontalDepthValue, getHorizontalDepthValue2 } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const input = await inputFile.text();
 
 test("should return the product of the horizontal position and depth", async () => {
-  expect(getHorizontalDepthValue(await testInput.text())).toBe(150);
+  expect(getHorizontalDepthValue(testInput)).toBe(150);
 
-  console.log("🌟 Answer:", getHorizontalDepthValue(await input.text()));
+  console.log("🌟 Answer:", getHorizontalDepthValue(input));
 });
 
 test("should return the product of the horizontal position and depth 2", async () => {
-  expect(getHorizontalDepthValue2(await testInput.text())).toBe(900);
+  expect(getHorizontalDepthValue2(testInput)).toBe(900);
 
-  console.log("🌟 Answer:", getHorizontalDepthValue2(await input.text()));
+  console.log("🌟 Answer:", getHorizontalDepthValue2(input));
 });

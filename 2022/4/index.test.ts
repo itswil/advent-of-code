@@ -5,23 +5,19 @@ import {
 } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const input = await inputFile.text();
 
 test("should return the number of assignment pairs which fully contain the other", async () => {
-  expect(getNumberOfContainedAssignmentPairs(await testInput.text())).toBe(2);
+  expect(getNumberOfContainedAssignmentPairs(testInput)).toBe(2);
 
-  console.log(
-    "🌟 Answer:",
-    getNumberOfContainedAssignmentPairs(await input.text())
-  );
+  console.log("🌟 Answer:", getNumberOfContainedAssignmentPairs(input));
 });
 
 test("should return the number of assignment pairs where the ranges overlap", async () => {
-  expect(getNumberOfOverlappingAssignmentPairs(await testInput.text())).toBe(4);
+  expect(getNumberOfOverlappingAssignmentPairs(testInput)).toBe(4);
 
-  console.log(
-    "🌟 Answer:",
-    getNumberOfOverlappingAssignmentPairs(await input.text())
-  );
+  console.log("🌟 Answer:", getNumberOfOverlappingAssignmentPairs(input));
 });

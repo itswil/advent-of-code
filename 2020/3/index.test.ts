@@ -2,17 +2,19 @@ import { expect, test } from "bun:test";
 import { getNumberOfTrees, getNumberOfTreesFromMaps } from ".";
 
 const PATH = import.meta.dir;
-const testInput = Bun.file(`${PATH}/input-test.txt`);
-const input = Bun.file(`${PATH}/input.txt`);
+const testInputFile = Bun.file(`${PATH}/input-test.txt`);
+const inputFile = Bun.file(`${PATH}/input.txt`);
+const testInput = await testInputFile.text();
+const input = await inputFile.text();
 
 test("should return the number of trees encountered", async () => {
-  expect(getNumberOfTrees(await testInput.text())).toBe(7);
+  expect(getNumberOfTrees(testInput)).toBe(7);
 
-  console.log("🌟 Answer:", getNumberOfTrees(await input.text()));
+  console.log("🌟 Answer:", getNumberOfTrees(input));
 });
 
 test("should return the number of trees encountered from several routes", async () => {
-  expect(getNumberOfTreesFromMaps(await testInput.text())).toBe(336);
+  expect(getNumberOfTreesFromMaps(testInput)).toBe(336);
 
-  console.log("🌟 Answer:", getNumberOfTreesFromMaps(await input.text()));
+  console.log("🌟 Answer:", getNumberOfTreesFromMaps(input));
 });
