@@ -24,13 +24,13 @@ test("should convert the string input into an array of arrays", () => {
   ]);
 });
 
-test("should return the crate on the top of each stack", async () => {
+test("should return the crate on the top of each stack", () => {
   expect(getCrates(testInput)).toBe("CMZ");
 
   console.log("🌟 Answer:", getCrates(input));
 });
 
-test("should return the crate on the top of each stack after using the CrateMover 9001", async () => {
+test("should return the crate on the top of each stack after using the CrateMover 9001", () => {
   expect(getCratesWithCrateMover9001(testInput)).toBe("MCD");
 
   console.log("🌟 Answer:", getCratesWithCrateMover9001(input));

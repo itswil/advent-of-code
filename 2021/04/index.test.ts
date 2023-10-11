@@ -45,13 +45,13 @@ test("should return false if the board is NOT winning", () => {
   expect(checkBoard(board, numbers2)).toBeFalse;
 });
 
-test("should return the final score of the winning board", async () => {
+test("should return the final score of the winning board", () => {
   expect(getWinningBoardFinalScore(testInput)).toBe(4512);
 
   console.log("🌟 Answer:", getWinningBoardFinalScore(input));
 });
 
-test("should return the final score of the board to 'win' last", async () => {
+test("should return the final score of the board to 'win' last", () => {
   expect(getLosingBoardFinalScore(testInput)).toBe(1924);
 
   console.log("🌟 Answer:", getLosingBoardFinalScore(input));

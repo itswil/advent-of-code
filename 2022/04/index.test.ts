@@ -10,13 +10,13 @@ const inputFile = Bun.file(`${PATH}/input.txt`);
 const testInput = await testInputFile.text();
 const input = await inputFile.text();
 
-test("should return the number of assignment pairs which fully contain the other", async () => {
+test("should return the number of assignment pairs which fully contain the other", () => {
   expect(getNumberOfContainedAssignmentPairs(testInput)).toBe(2);
 
   console.log("🌟 Answer:", getNumberOfContainedAssignmentPairs(input));
 });
 
-test("should return the number of assignment pairs where the ranges overlap", async () => {
+test("should return the number of assignment pairs where the ranges overlap", () => {
   expect(getNumberOfOverlappingAssignmentPairs(testInput)).toBe(4);
 
   console.log("🌟 Answer:", getNumberOfOverlappingAssignmentPairs(input));

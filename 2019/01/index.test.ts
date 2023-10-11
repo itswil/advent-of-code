@@ -7,13 +7,13 @@ const inputFile = Bun.file(`${PATH}/input.txt`);
 const testInput = await testInputFile.text();
 const input = await inputFile.text();
 
-test("should return the sum of the fuel requirements", async () => {
+test("should return the sum of the fuel requirements", () => {
   expect(getFuelRequirementsSum(testInput)).toBe(2 + 2 + 654 + 33583);
 
   console.log("🌟 Answer:", getFuelRequirementsSum(input));
 });
 
-test("should return the sum of the fuel requirements recursively", async () => {
+test("should return the sum of the fuel requirements recursively", () => {
   expect(getFuelRequirementsSumRecursively(testInput)).toBe(
     2 + 2 + 966 + 50346
   );

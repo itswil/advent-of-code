@@ -7,7 +7,7 @@ const inputFile = Bun.file(`${PATH}/input.txt`);
 const testInput = await testInputFile.text();
 const input = await inputFile.text();
 
-test("should return the submarine power consumption", async () => {
+test("should return the submarine power consumption", () => {
   expect(getPowerConsumption(testInput)).toBe(198);
 
   console.log("🌟 Answer:", getPowerConsumption(input));

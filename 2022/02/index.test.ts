@@ -11,19 +11,19 @@ const inputFile = Bun.file(`${PATH}/input.txt`);
 const testInput = await testInputFile.text();
 const input = await inputFile.text();
 
-test("should return total score for the given strategy", async () => {
+test("should return total score for the given strategy", () => {
   expect(getTotalScore(testInput)).toBe(15);
 
   console.log("🌟 Answer:", getTotalScore(input));
 });
 
-test("should return total score for the given strategy v2", async () => {
+test("should return total score for the given strategy v2", () => {
   expect(getTotalScore2(testInput)).toBe(15);
 
   console.log("🌟 Answer:", getTotalScore2(input));
 });
 
-test("should return total score for ultra top secret strategy", async () => {
+test("should return total score for ultra top secret strategy", () => {
   expect(getTotalScoreForTopSecretStrategy(testInput)).toBe(12);
 
   console.log("🌟 Answer:", getTotalScoreForTopSecretStrategy(input));

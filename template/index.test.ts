@@ -7,7 +7,7 @@ const inputFile = Bun.file(`${PATH}/input.txt`);
 const testInput = await testInputFile.text();
 const input = await inputFile.text();
 
-// test("should return ...", async () => {
+// test("should return ...", () => {
 //   expect(getValue(testInput)).toBe(88888888);
 
 //   console.log("🌟 Answer:", getValue(input));
