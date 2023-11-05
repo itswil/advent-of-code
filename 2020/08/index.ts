@@ -55,7 +55,9 @@ const getAccumulatorValueOnTerminationOnly = (
   return accumulator;
 };
 
-export const getAccumulatorValueOnTermination = (input: string): number => {
+export const getAccumulatorValueOnTermination = (
+  input: string
+): number | null => {
   const lines = input.split("\n");
   const jmpIndexes = [];
   const nopIndexes = [];
@@ -88,4 +90,6 @@ export const getAccumulatorValueOnTermination = (input: string): number => {
       return accumulator;
     }
   }
+
+  return null;
 };
