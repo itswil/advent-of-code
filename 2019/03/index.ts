@@ -31,6 +31,46 @@ export const getCoordsForWirePath = (path: string): Array<Coord> => {
   return coords;
 };
 
+// extremely slow
+const getIntersectionsV1 = (
+  paths1: Array<string>,
+  paths2: Array<string>
+): Array<string> => paths1.filter((c) => paths2.includes(c));
+
+// no difference
+const getIntersectionsV2 = (
+  paths1: Array<string>,
+  paths2: Array<string>
+): Array<string> => {
+  const intersections = [];
+  for (const coord of paths1) {
+    if (paths2.includes(coord)) {
+      intersections.push(coord);
+    }
+  }
+  return intersections;
+};
+
+// fast
+const getIntersectionsV3 = (
+  paths1: Array<string>,
+  paths2: Array<string>
+): Array<string> => {
+  const intersections = [];
+  const paths2Set = new Set(paths2);
+  for (const coord of paths1) {
+    if (paths2Set.has(coord)) {
+      intersections.push(coord);
+    }
+  }
+  return intersections;
+};
+
+// Performance: Slicing path1Stringified and path2Stringified to 50k
+// V1: 18s
+// V2: 18s
+// V3: 27ms
+
 export const getWireCrossCoords = (
   path1: Array<Coord>,
   path2: Array<Coord>
@@ -38,9 +78,7 @@ export const getWireCrossCoords = (
   const path1Stringified = path1.map((c) => c.toString());
   const path2Stringified = path2.map((c) => c.toString());
 
-  const intersections = path1Stringified.filter((c) =>
-    path2Stringified.includes(c)
-  );
+  const intersections = getIntersectionsV3(path1Stringified, path2Stringified);
 
   return intersections.map((c) => {
     const [x, y] = c.split(",");
@@ -48,7 +86,6 @@ export const getWireCrossCoords = (
   });
 };
 
-// Works for small sets of data only
 export const getClosestIntersection = (input: string): number => {
   const [wire1, wire2] = input.split("\n");
 

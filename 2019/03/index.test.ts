@@ -69,14 +69,7 @@ test("should return an array of matching coordinates", () => {
 
 test("should return the Manhattan distance to the closest intersection", () => {
   expect(getClosestIntersection(testInput)).toBe(159);
-
-  // Commenting because this takes 6 mins to run T_T
-  // console.log("🌟 Answer:", getClosestIntersection(input));
-});
-
-test("should return the Manhattan distance to the closest intersection 2", () => {
   expect(getClosestIntersection(testInput2)).toBe(135);
 
-  // Commenting because this takes 6 mins to run T_T
-  // console.log("🌟 Answer:", getClosestIntersection(input));
+  console.log("🌟 Answer:", getClosestIntersection(input));
 });
