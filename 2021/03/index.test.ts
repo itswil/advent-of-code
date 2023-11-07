@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { getPowerConsumption } from ".";
+import { getPowerConsumption, getLifeSupportRating } from ".";
 
 const PATH = import.meta.dir;
 const testInputFile = Bun.file(`${PATH}/input-test.txt`);
@@ -11,4 +11,10 @@ test("should return the submarine power consumption", () => {
   expect(getPowerConsumption(testInput)).toBe(198);
 
   console.log("🌟 Answer:", getPowerConsumption(input));
+});
+
+test("should return the submarine life support rating", () => {
+  expect(getLifeSupportRating(testInput)).toBe(230);
+
+  console.log("🌟 Answer:", getLifeSupportRating(input));
 });
