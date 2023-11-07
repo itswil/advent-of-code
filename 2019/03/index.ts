@@ -102,3 +102,27 @@ export const getClosestIntersection = (input: string): number => {
 
   return Math.min(...crossCoordSums);
 };
+
+export const getQuickestIntersection = (input: string): number => {
+  const [wire1, wire2] = input.split("\n");
+
+  const path1 = getCoordsForWirePath(wire1);
+  const path2 = getCoordsForWirePath(wire2);
+
+  const crossCoords = getWireCrossCoords(path1, path2);
+
+  crossCoords.shift(); // remove [0,0]
+
+  const path1Stringified = path1.map((c) => c.toString());
+  const path2Stringified = path2.map((c) => c.toString());
+
+  const crossCoordsTime = crossCoords.map((coord) => {
+    const coordString = coord.toString();
+    return (
+      path1Stringified.indexOf(coordString) +
+      path2Stringified.indexOf(coordString)
+    );
+  });
+
+  return Math.min(...crossCoordsTime);
+};

@@ -3,6 +3,7 @@ import {
   getClosestIntersection,
   getCoordsForWirePath,
   getWireCrossCoords,
+  getQuickestIntersection,
 } from ".";
 
 const PATH = import.meta.dir;
@@ -72,4 +73,11 @@ test("should return the Manhattan distance to the closest intersection", () => {
   expect(getClosestIntersection(testInput2)).toBe(135);
 
   console.log("🌟 Answer:", getClosestIntersection(input));
+});
+
+test("should return the quickest time taken to get to any instersection", () => {
+  expect(getQuickestIntersection(testInput)).toBe(610);
+  expect(getQuickestIntersection(testInput2)).toBe(410);
+
+  console.log("🌟 Answer:", getQuickestIntersection(input));
 });
