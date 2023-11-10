@@ -50,3 +50,38 @@ export const getNumberOfValidStrings = (input: string): number => {
 
   return validStringCount;
 };
+
+const hasRepeatingPair = (str: string): boolean => {
+  return str.match(/(\w\w).*\1/) ? true : false;
+};
+
+const hasRepeatingLetter = (str: string): boolean => {
+  return str.match(/(\w)\w\1/) ? true : false;
+};
+
+export const validateStringV2 = (str: string): boolean => {
+  let isValid = true;
+
+  if (!hasRepeatingPair(str)) {
+    isValid = false;
+  }
+
+  if (!hasRepeatingLetter(str)) {
+    isValid = false;
+  }
+
+  return isValid;
+};
+
+export const getNumberOfValidStringsV2 = (input: string): number => {
+  const strings = input.split("\n");
+  let validStringCount = 0;
+
+  for (const str of strings) {
+    if (validateStringV2(str)) {
+      validStringCount++;
+    }
+  }
+
+  return validStringCount;
+};
