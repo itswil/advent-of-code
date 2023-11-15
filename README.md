@@ -1,8 +1,12 @@
 # 🎄 Advent of Code 🌟
 
+## 🛷 Pre-requisites
+
+- [Bun](https://bun.sh/)
+
 ## 🦌 Running tests
 
-### Individual test
+### Test-driven development
 
 ```
 bun test --watch 2020/01
