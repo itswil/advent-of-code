@@ -1,6 +1,6 @@
 # 🎄 Advent of Code 🌟
 
-## 🛷 Pre-requisites
+## 🛷 Prerequisites
 
 - [Bun](https://bun.sh/)
 
