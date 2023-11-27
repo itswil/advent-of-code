@@ -1,5 +1,11 @@
 import { expect, test } from "bun:test";
-import { extractSectorId, getSectorIdSum, isRealRoom } from ".";
+import {
+  decryptName,
+  extractSectorId,
+  getNorthPoleRoomSectorId,
+  getSectorIdSum,
+  isRealRoom,
+} from ".";
 
 const PATH = import.meta.dir;
 const testInputFile = Bun.file(`${PATH}/input-test.txt`);
@@ -25,4 +31,16 @@ test("should return the sum of sector IDs for real rooms", () => {
   expect(getSectorIdSum(testInput)).toBe(1514);
 
   console.log("🌟 Answer:", getSectorIdSum(input));
+});
+
+test("should return a decrypted name", () => {
+  expect(decryptName("qzmt-zixmtkozy-ivhz-343[abcd]")).toBe(
+    "very encrypted name 343"
+  );
+});
+
+test("should return the sector ID of the room with North Pole objects", () => {
+  // no test cases
+
+  console.log("🌟 Answer:", getNorthPoleRoomSectorId(input));
 });
