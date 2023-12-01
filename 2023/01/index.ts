@@ -93,7 +93,6 @@ export const getCalibrationValueSumV2 = (input: string): number => {
     const lastDigit = getLastDigit(line);
     const firstNumber = getFirstNumber(line);
     const lastNumber = getLastNumber(line);
-    console.log("111", firstDigit, lastDigit, firstNumber, lastNumber);
 
     let first;
     let last;
@@ -117,7 +116,6 @@ export const getCalibrationValueSumV2 = (input: string): number => {
       last = NUMBERS[lastNumber];
     }
 
-    console.log("🚀", first, last);
     values.push(parseInt(first + last, 10));
   }
 
