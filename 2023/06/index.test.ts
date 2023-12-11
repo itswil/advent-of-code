@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { getWinningStrategyProduct } from ".";
+import { getWinningStrategy, getWinningStrategyProduct } from ".";
 
 const PATH = import.meta.dir;
 const testInputFile = Bun.file(`${PATH}/input-test.txt`);
@@ -11,4 +11,10 @@ test("should return the product of the number of winning strategies", () => {
   expect(getWinningStrategyProduct(testInput)).toBe(288);
 
   console.log("🌟 Answer:", getWinningStrategyProduct(input));
+});
+
+test("should return the number of winning strategies", () => {
+  expect(getWinningStrategy(testInput)).toBe(71503);
+
+  console.log("🌟 Answer:", getWinningStrategy(input));
 });

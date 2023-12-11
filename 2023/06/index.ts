@@ -33,3 +33,39 @@ export const getWinningStrategyProduct = (input: string): number => {
 
   return winningStrategies.reduce((a, c) => a * c, 1);
 };
+
+export const getWinningStrategy = (input: string): number => {
+  const [unformattedTimes, unformattedDistances] = input.split("\n");
+  const time = parseInt(
+    unformattedTimes
+      .split(":")[1]
+      .split(" ")
+      .filter((s) => s !== "")
+      .join(""),
+    10
+  );
+  const distance = parseInt(
+    unformattedDistances
+      .split(":")[1]
+      .split(" ")
+      .filter((s) => s !== "")
+      .join("")
+  );
+  let winningStrategies = 0;
+
+  for (let j = 1; j < time; j++) {
+    if (j === time) {
+      continue;
+    }
+    const holdTime = j;
+    const speed = j;
+
+    const distanceTravelled = (time - holdTime) * speed;
+
+    if (distanceTravelled > distance) {
+      winningStrategies++;
+    }
+  }
+
+  return winningStrategies;
+};
