@@ -4,6 +4,7 @@ import {
   compareHands,
   getHighestHandStrength,
   getTotalWinnings,
+  getTotalWinningsV2,
 } from ".";
 
 const PATH = import.meta.dir;
@@ -61,4 +62,10 @@ test("should return the total winnings", () => {
   expect(getTotalWinnings(testInput)).toBe(6440);
 
   console.log("🌟 Answer:", getTotalWinnings(input));
+});
+
+test("should return the total winnings with the new Joker rules", () => {
+  expect(getTotalWinningsV2(testInput)).toBe(5905);
+
+  console.log("🌟 Answer:", getTotalWinningsV2(input));
 });
