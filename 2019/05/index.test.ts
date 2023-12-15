@@ -8,7 +8,7 @@ const testInput = await testInputFile.text();
 const input = await inputFile.text();
 
 test("should return the diagnostic code from the program", () => {
-  // expect(getDiagnosticCode(testInput)).toBe(88888888);
+  // No test cases available
 
   console.log("🌟 Answer:", getDiagnosticCode(input));
 });
