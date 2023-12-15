@@ -10,5 +10,5 @@ const input = await inputFile.text();
 test("should return the diagnostic code from the program", () => {
   // No test cases available
 
-  console.log("🌟 Answer:", getDiagnosticCode(input));
+  console.log("🌟 Answer:", getDiagnosticCode(input, 1));
 });

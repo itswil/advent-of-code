@@ -5,7 +5,7 @@ const isStoreOp = (code: number) => code === 3;
 const isOutputOp = (code: number) => code === 4;
 const isImmediateMode = (code: number) => code > 99;
 
-export const getDiagnosticCode = (input: string, value = 1): number => {
+export const getDiagnosticCode = (input: string, value: number): number => {
   const ops = input.split(",").map(Number); // list of operations
 
   let i = 0; // pointer
@@ -15,7 +15,6 @@ export const getDiagnosticCode = (input: string, value = 1): number => {
     let a = ops[i + 1];
     let b = ops[i + 2];
     let c = ops[i + 3];
-    console.log(op, ops[i + 1], ops[i + 2], ops[i + 3]);
 
     if (isImmediateMode(op)) {
       const opStr = `${op}`.padStart(5, "0");
