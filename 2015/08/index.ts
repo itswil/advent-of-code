@@ -7,13 +7,15 @@ export const getInMemoryStringLength = (str: string): number => {
     const currentChar = strWithoutQuotes[pointer];
 
     if (currentChar === "\\") {
-      if (strWithoutQuotes[pointer + 1] === "\\") {
+      const nextChar = strWithoutQuotes[pointer + 1];
+
+      if (nextChar === "\\") {
         length++;
         pointer = pointer + 2;
-      } else if (strWithoutQuotes[pointer + 1] === `"`) {
+      } else if (nextChar === `"`) {
         length++;
         pointer = pointer + 2;
-      } else if (strWithoutQuotes[pointer + 1] === `x`) {
+      } else if (nextChar === `x`) {
         length++;
         pointer = pointer + 4;
       }
@@ -38,4 +40,35 @@ export const getStringLengthDifference = (input: string): number => {
   const totalInMemoryStringLength = lengths.reduce((a, c) => a + c[1], 0);
 
   return totalStringLength - totalInMemoryStringLength;
+};
+
+export const getEncodedStringLength = (str: string): number => {
+  let length = 0;
+
+  for (const currentChar of str) {
+    if (currentChar === `"`) {
+      length = length + 2;
+    } else if (currentChar === "\\") {
+      length = length + 2;
+    } else {
+      length = length + 1;
+    }
+  }
+  length = length + 2; // for the outer "" quotes
+
+  return length;
+};
+
+export const getStringLengthDifferenceV2 = (input: string): number => {
+  const strs = input.split("\n");
+  const lengths: Array<[number, number]> = [];
+
+  for (const str of strs) {
+    lengths.push([str.length, getEncodedStringLength(str)]);
+  }
+
+  const totalStringLength = lengths.reduce((a, c) => a + c[0], 0);
+  const totalEncodedStringLength = lengths.reduce((a, c) => a + c[1], 0);
+
+  return totalEncodedStringLength - totalStringLength;
 };

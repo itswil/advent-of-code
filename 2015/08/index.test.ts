@@ -1,5 +1,10 @@
 import { expect, test } from "bun:test";
-import { getStringLengthDifference, getInMemoryStringLength } from ".";
+import {
+  getInMemoryStringLength,
+  getStringLengthDifference,
+  getEncodedStringLength,
+  getStringLengthDifferenceV2,
+} from ".";
 
 const PATH = import.meta.dir;
 const testInputFile = Bun.file(`${PATH}/input-test.txt`);
@@ -18,4 +23,17 @@ test("should return total string length minus total in-memory string length", ()
   expect(getStringLengthDifference(testInput)).toBe(12);
 
   console.log("🌟 Answer:", getStringLengthDifference(input));
+});
+
+test("should return the encoded length of a string", () => {
+  expect(getEncodedStringLength(`""`)).toBe(6);
+  expect(getEncodedStringLength(`"abc"`)).toBe(9);
+  expect(getEncodedStringLength(`"aaa\\\"aaa"`)).toBe(16);
+  expect(getEncodedStringLength(`"\\x27"`)).toBe(11);
+});
+
+test("should return total encoded string length minus total string length", () => {
+  expect(getStringLengthDifferenceV2(testInput)).toBe(19);
+
+  console.log("🌟 Answer:", getStringLengthDifferenceV2(input));
 });
