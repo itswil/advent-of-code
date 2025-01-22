@@ -12,82 +12,82 @@ export const stringCheck = (c1: Char, c2: Char, c3: Char, c4: Char) => {
 export const getNumberOfOccurences = (input: string): number => {
 	let count = 0;
 
-	const inputArray = input.split("\n").map((line) => line.split(""));
+	const grid = input.split("\n").map((line) => line.split(""));
 
-	for (let i = 0; i < inputArray.length; i++) {
-		for (let j = 0; j < inputArray[0].length; j++) {
+	for (let i = 0; i < grid.length; i++) {
+		for (let j = 0; j < grid[0].length; j++) {
 			// North
 			if (i - 3 >= 0) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i - 1][j],
-						inputArray[i - 2][j],
-						inputArray[i - 3][j],
+						grid[i][j],
+						grid[i - 1][j],
+						grid[i - 2][j],
+						grid[i - 3][j],
 					)
 				)
 					count++;
 			}
 
 			// North East
-			if (i - 3 >= 0 && j + 3 < inputArray[0].length) {
+			if (i - 3 >= 0 && j + 3 < grid[0].length) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i - 1][j + 1],
-						inputArray[i - 2][j + 2],
-						inputArray[i - 3][j + 3],
+						grid[i][j],
+						grid[i - 1][j + 1],
+						grid[i - 2][j + 2],
+						grid[i - 3][j + 3],
 					)
 				)
 					count++;
 			}
 
 			// East
-			if (j + 3 < inputArray[0].length) {
+			if (j + 3 < grid[0].length) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i][j + 1],
-						inputArray[i][j + 2],
-						inputArray[i][j + 3],
+						grid[i][j],
+						grid[i][j + 1],
+						grid[i][j + 2],
+						grid[i][j + 3],
 					)
 				)
 					count++;
 			}
 
 			// South East
-			if (i + 3 < inputArray.length && j + 3 < inputArray[0].length) {
+			if (i + 3 < grid.length && j + 3 < grid[0].length) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i + 1][j + 1],
-						inputArray[i + 2][j + 2],
-						inputArray[i + 3][j + 3],
+						grid[i][j],
+						grid[i + 1][j + 1],
+						grid[i + 2][j + 2],
+						grid[i + 3][j + 3],
 					)
 				)
 					count++;
 			}
 
 			// South
-			if (i + 3 < inputArray.length) {
+			if (i + 3 < grid.length) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i + 1][j],
-						inputArray[i + 2][j],
-						inputArray[i + 3][j],
+						grid[i][j],
+						grid[i + 1][j],
+						grid[i + 2][j],
+						grid[i + 3][j],
 					)
 				)
 					count++;
 			}
 			// South West
-			if (i + 3 < inputArray.length && j - 3 >= 0) {
+			if (i + 3 < grid.length && j - 3 >= 0) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i + 1][j - 1],
-						inputArray[i + 2][j - 2],
-						inputArray[i + 3][j - 3],
+						grid[i][j],
+						grid[i + 1][j - 1],
+						grid[i + 2][j - 2],
+						grid[i + 3][j - 3],
 					)
 				)
 					count++;
@@ -97,10 +97,10 @@ export const getNumberOfOccurences = (input: string): number => {
 			if (j - 3 >= 0) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i][j - 1],
-						inputArray[i][j - 2],
-						inputArray[i][j - 3],
+						grid[i][j],
+						grid[i][j - 1],
+						grid[i][j - 2],
+						grid[i][j - 3],
 					)
 				)
 					count++;
@@ -110,13 +110,36 @@ export const getNumberOfOccurences = (input: string): number => {
 			if (i - 3 >= 0 && j - 3 >= 0) {
 				if (
 					stringCheck(
-						inputArray[i][j],
-						inputArray[i - 1][j - 1],
-						inputArray[i - 2][j - 2],
-						inputArray[i - 3][j - 3],
+						grid[i][j],
+						grid[i - 1][j - 1],
+						grid[i - 2][j - 2],
+						grid[i - 3][j - 3],
 					)
 				)
 					count++;
+			}
+		}
+	}
+
+	return count;
+};
+
+export const getNumberOfOccurences2 = (input: string): number => {
+	let count = 0;
+
+	const grid = input.split("\n").map((line) => line.split(""));
+
+	for (let i = 1; i < grid.length - 1; i++) {
+		for (let j = 1; j < grid[0].length - 1; j++) {
+			if (grid[i][j] === "A") {
+				if (
+					((grid[i - 1][j - 1] === "M" && grid[i + 1][j + 1] === "S") ||
+						(grid[i - 1][j - 1] === "S" && grid[i + 1][j + 1] === "M")) &&
+					((grid[i - 1][j + 1] === "M" && grid[i + 1][j - 1] === "S") ||
+						(grid[i - 1][j + 1] === "S" && grid[i + 1][j - 1] === "M"))
+				) {
+					count++;
+				}
 			}
 		}
 	}
